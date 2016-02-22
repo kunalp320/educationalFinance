@@ -1,0 +1,22 @@
+{
+  "name": "educationalFinance",
+  "version": "1.0.0",
+  "description": "A webapp that serves as a educational finance tool",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "educationalFinance"
+  },
+  "author": "Kunal Patel",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5"
+  }
+}
