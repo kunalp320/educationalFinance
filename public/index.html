@@ -11,12 +11,18 @@
       Educational Finance Tool
     </div>
     <div class="container">
-      <div class="stocks">
-        <form ng-controller="StockQuoteController as stockQuoteCtrl" ng-submit="stockQuoteCtrl.getStockData()">
-          Symbol: <input type="text" name="tickerSymbol" value="AAPL" ng-model="stockTicker">
+      <div class="stocks" ng-controller="StockQuoteController as stockQuoteCtrl">
+        <form ng-submit="stockQuoteCtrl.getStockData()" novalidate>
+          Symbol: <input type="text" name="tickerSymbol" ng-model="stockTicker">
           <input type="submit" value="Submit">
         </form>
         <div class="stock_list">
+          <table>
+            <tr class="table_format" ng-repeat="(key, value) in stockQuoteCtrl.stockQuote">
+              <td class="table_data">{{key}}</td>
+              <td class="table_data">{{value}}</td>
+            </tr>
+          </table>
         </div>
         <div class="stock_info">
         </div>
