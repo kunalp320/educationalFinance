@@ -13,7 +13,7 @@
     <div class="container">
       <div class="stocks" ng-controller="StockQuoteController as stockQuoteCtrl">
         <form ng-submit="stockQuoteCtrl.getStockData()" novalidate>
-          Symbol: <input type="text" name="tickerSymbol" ng-model="stockTicker">
+          Symbol: <input type="text" name="tickerSymbol" ng-model="stockTicker" required>
           <input type="submit" value="Submit">
         </form>
         <div class="stock_list">

@@ -1,0 +1,42 @@
+.header_bar {
+  width: 100%;
+  height: 80px;
+  background-color: green;
+  font-size: 20px;
+  text-align: center;
+  line-height: 80px;
+  color: white;
+}
+
+.container {
+  width: 100%;
+  background-color: blue;
+}
+
+.stocks {
+  width: 50%;
+  float: left;
+}
+
+.stock_list {
+  width: 50%;
+}
+
+.stock_graph {
+  width: 50%;
+  float: left;
+  background-color: red;
+  height: 50px;
+}
+
+.table_class {
+  background-color: lightgray;
+  margin-top: 20px;
+  margin-right: 20px;
+}
+
+.table_data {
+  font: 14px;
+  height: 15px;
+}
+
