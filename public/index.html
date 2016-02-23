@@ -9,8 +9,8 @@
     </div>
     <div class="container">
       <div class="stocks">
-        <form action="/get_stock_quote">
-          Symbol: <input type="text" name="TickerSymbol" value="">
+        <form action="/get_stock_quote" method="post">
+          Symbol: <input type="text" name="tickerSymbol" value="AAPL">
           <input type="submit" value="Submit">
         </form>
         <div class="stock_list">
