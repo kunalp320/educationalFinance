@@ -5,8 +5,8 @@ app.controller('StockQuoteController', ['$scope', '$http', function($scope, $htt
   this.stockQuote = {}; 
 
   this.getStockData = function() {
-    console.log("inside angular");
-    $http.get("http://dev.markitondemand.com/MODApis/Api/v2/Quote?symbol=AAPL").success(function(data) {
+    var urlRequest = "http://dev.markitondemand.com/MODApis/Api/v2/Quote?symbol=" + $scope.stockTicker;
+    $http.get(urlRequest).success(function(data) {
       var x2j2 = new X2JS();
       var jsonResponse = x2j2.xml_str2json(data);
       stock.stockQuote = jsonResponse;
