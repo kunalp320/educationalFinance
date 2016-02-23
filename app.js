@@ -7,6 +7,10 @@ app.get('/', function(req, res) {
 
 });
 
+app.get('/get_stock_quote', function(req, res) {
+  console.log("We got to the endpoint");
+});
+
 app.listen(8080, function() {
   console.log("Listening on port 8080");
 });
