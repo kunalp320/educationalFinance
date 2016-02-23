@@ -2,6 +2,7 @@
 <html>
   <head>
     <link rel="stylesheet" type="text/css", href="stylesheets/homepage.css">
+    <script src=stockQuote.js></script>
   </head>
   <body>
     <div class="header_bar"> 
@@ -9,7 +10,7 @@
     </div>
     <div class="container">
       <div class="stocks">
-        <form action="/get_stock_quote" method="POST">
+        <form action="/get_stock_quote" method="POST" ng-submit="" ng-controller="StockQuoteController as stockQuoteCtrl">
           Symbol: <input type="text" name="tickerSymbol" value="AAPL">
           <input type="submit" value="Submit">
         </form>
