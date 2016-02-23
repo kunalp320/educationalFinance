@@ -12,6 +12,12 @@ app.get('/', function(req, res) {
 
 });
 
+app.post('/save_info', function(req, res) {
+  console.log(req.query);
+  console.log("INSIDE NODE");
+  res.json({status: 200});
+});
+
 app.listen(8080, function() {
   console.log("Listening on port 8080");
 });

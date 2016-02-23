@@ -5,8 +5,8 @@ app.controller('StockQuoteController', ['$scope', '$http', function($scope, $htt
   this.stockQuote = {}; 
   
   this.getStockData = function() {
-    var urlRequest = "http://dev.markitondemand.com/MODApis/Api/v2/Quote?symbol=" + $scope.stockTicker;
-    $http.get(urlRequest).success(function(data) {
+    var stockQuoteRequest = "http://dev.markitondemand.com/MODApis/Api/v2/Quote?symbol=" + $scope.stockTicker;
+    $http.get(stockQuoteRequest).success(function(data) {
       var x2j2 = new X2JS();
       var jsonResponse = x2j2.xml_str2json(data);
       var dataToSave = {};
@@ -20,5 +20,13 @@ app.controller('StockQuoteController', ['$scope', '$http', function($scope, $htt
       stock.stockQuote = dataToSave;
     });
   }
+  this.saveStockInfo = function() {
+    console.log("inside angular");
+    var postURL = "/save_info?symbol=" + $scope.stockTicker;
+    $http.post(postURL).success(function() {
+      console.log("saved");
+    });
+  }
+
 }]);
 

@@ -40,3 +40,12 @@
   height: 15px;
 }
 
+.symbol_search {
+  float: left;
+}
+.save_button {
+  margin-left: 25px;
+  float: left;
+
+}
+

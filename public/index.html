@@ -8,14 +8,15 @@
   </head>
   <body >
     <div class="header_bar"> 
-      Educational Finance Tool
+      Stock Tracker Tool
     </div>
     <div class="container">
       <div class="stocks" ng-controller="StockQuoteController as stockQuoteCtrl">
-        <form ng-submit="stockQuoteCtrl.getStockData()" novalidate>
+        <form class="symbol_search" ng-submit="stockQuoteCtrl.getStockData()" novalidate>
           Symbol: <input type="text" name="tickerSymbol" ng-model="stockTicker" required>
           <input type="submit" value="Submit">
         </form>
+        <input type="button" value="Save Search Price" class="save_button" ng-click="stockQuoteCtrl.saveStockInfo()">
         <div class="stock_list">
           <table>
             <tr class="table_format" ng-repeat="(key, value) in stockQuoteCtrl.stockQuote">
