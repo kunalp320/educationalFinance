@@ -9,8 +9,8 @@
       Educational Finance Tool
     </div>
     <div class="container">
-      <div class="stocks">
-        <form action="/get_stock_quote" method="POST" ng-submit="" ng-controller="StockQuoteController as stockQuoteCtrl">
+      <div class="stocks" ng-app="stockQuote">
+        <form action="/get_stock_quote" method="POST" ng-controller="StockQuoteController as stockQuoteCtrl" ng-submit="stockQuoteCtrl.getStockData()">
           Symbol: <input type="text" name="tickerSymbol" value="AAPL">
           <input type="submit" value="Submit">
         </form>
