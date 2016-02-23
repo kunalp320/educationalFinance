@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="stockQuote">
   <head>
     <link rel="stylesheet" type="text/css", href="stylesheets/homepage.css">
-    <script src=stockQuote.js></script>
+    <script src="stockQuote.js"></script>
   </head>
-  <body>
+  <body >
     <div class="header_bar"> 
       Educational Finance Tool
     </div>
     <div class="container">
-      <div class="stocks" ng-app="stockQuote">
-        <form action="/get_stock_quote" method="POST" ng-controller="StockQuoteController as stockQuoteCtrl" ng-submit="stockQuoteCtrl.getStockData()">
+      <div class="stocks">
+        <form ng-controller="StockQuoteController as stockQuoteCtrl" ng-submit="getStockData()">
           Symbol: <input type="text" name="tickerSymbol" value="AAPL">
           <input type="submit" value="Submit">
         </form>
