@@ -34,7 +34,7 @@
             <table>
               <h5 class="header">Below are the initial search prices for all tickers</h5>
               <tr class="table_format" ng-repeat="(key, value) in stockQuoteCtrl.tickers">
-                <td class="table_data">{{key}} : </td>
+                <td class="table_data">{{key | uppercase}} : </td>
                 <td class="table_data">{{value | currency}}</td>
               </tr>
           </table>

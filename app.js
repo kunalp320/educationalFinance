@@ -2,9 +2,20 @@ var express = require('express');
 var path = require('path');
 var bodyParser = require("body-parser");
 var request = require("request");
+var mongoose = require("mongoose");
+
 var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
+mongoose.connect('mongodb://localhost/test');
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  // we're connected!
+  console.log("WE ARE IN");
+});
+
 
 var stocks = {};
 app.use(express.static(path.join(__dirname, 'public')));
