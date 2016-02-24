@@ -22,7 +22,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', function(req, res) {
   res.sendFile('public/index.html', {root: __dirname});
 
-});
+);
 
 app.post('/save_info', function(req, res) {
   console.log(req.query.price);
@@ -36,4 +36,6 @@ app.get('/getTickers', function(req, res) {
   res.json({"object" : stocks});
 });
 
-
+app.listen(8080, function() {
+  console.log("Listening on port 8080");
+});
