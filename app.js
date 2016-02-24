@@ -18,7 +18,7 @@ app.post('/save_info', function(req, res) {
 });
 
 app.get('/getTickers', function(req, res) {
-  res.json({});
+  res.json({"AAPL" : "500"});
 });
 
 app.listen(8080, function() {

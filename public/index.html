@@ -32,9 +32,10 @@
           <input type="button" value="Display all searched tickers" class="save_button" ng-click="stockQuoteCtrl.displayTickers()"></input>
           <div class="stock_list">
             <table>
+              <h5 class="header">Below are the initial search prices for all tickers</h5>
               <tr class="table_format" ng-repeat="(key, value) in stockQuoteCtrl.tickers">
-                <td class="table_data">{{key}}</td>
-                <td class="table_data">{{value}}</td>
+                <td class="table_data">{{key}} : </td>
+                <td class="table_data">{{value | currency}}</td>
               </tr>
           </table>
           </div>

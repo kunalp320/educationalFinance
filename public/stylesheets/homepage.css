@@ -18,15 +18,11 @@
   float: left;
 }
 
-.stock_list {
-  width: 50%;
-}
+
 
 .stock_graph {
   width: 50%;
   float: left;
-  background-color: red;
-  height: 50px;
 }
 
 .table_class {
@@ -40,11 +36,14 @@
   height: 15px;
 }
 
+.header {
+  margin-top: 40px;
+  text-align: center;
+}
 .symbol_search {
   float: left;
 }
 .save_button {
-  margin-left: 25px;
   float: left;
 
 }
