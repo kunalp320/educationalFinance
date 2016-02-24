@@ -7,32 +7,23 @@ app.controller('StockQuoteController', ['$scope', '$http', '$window', function($
   this.ticker = "";
   this.tickers = {}; 
   this.getStockData = function() {
-    var stockQuoteRequest = "http://dev.markitondemand.com/MODApis/Api/v2/Quote?symbol=" + $scope.stockTicker;
-    $http.get(stockQuoteRequest).success(function(data) {
-      var x2j2 = new X2JS();
-      var jsonResponse = x2j2.xml_str2json(data);
-      var dataToSave = {};
-      for (var key in jsonResponse.StockQuote) {
-        if(key === "Name") {
-          stock.ticker = jsonResponse.StockQuote[key];
-          continue;
-        }
-        if(key === "MSDate" || key === "Status" || key === "Timestamp" || key == "Symbol") {
-          continue;
-        } else {
-          dataToSave[key] = jsonResponse.StockQuote[key];
-        }
-      }
-      stock.stockQuote = dataToSave;
+    var stockQuoteRequest = "/stockQuote?symbol=" + $scope.stockTicker;
+    $http.get(stockQuoteRequest).success(function(jsonResponse) {
+      stock.stockQuote = jsonResponse["stockQuote"];
+      stock.ticker = jsonResponse["ticker"];
       stock.haveData = true;
     });
   }
   this.saveStockInfo = function() {
     var postURL = "/save_info?symbol=" + $scope.stockTicker + "&price=" + stock.stockQuote.LastPrice;
-    $http.post(postURL).success(function() {
-      $window.alert.title = "";
-      $window.alert("Successfully Saved Ticker and Price!");
-    });
+    if($scope.stockTicker === undefined) {
+      $window.alert("There is no ticker to save");
+    } else {
+        $http.post(postURL).success(function() {
+          $window.alert.title = "";
+          $window.alert("Successfully Saved Ticker and Price!");
+        });
+    }
   }
 
   this.displayTickers = function() {
