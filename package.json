@@ -23,7 +23,8 @@
     "node",
     "heroku",
     "express",
-    "angular"
+    "angular",
+    "request"
   ],
   "devDependencies": {
     "grunt": "^0.4.5"
