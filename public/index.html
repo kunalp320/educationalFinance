@@ -18,10 +18,11 @@
         </form>
         <input type="button" value="Save Search Price" class="save_button" ng-click="stockQuoteCtrl.saveStockInfo()"></input>
         <div class="stock_list">
-          <table>
+          <h5 class="ticker_name" ng-show="stockQuoteCtrl.haveData">{{stockQuoteCtrl.ticker}}</h5>
+          <table class="table_class" ng-show="stockQuoteCtrl.haveData">
             <tr class="table_format" ng-repeat="(key, value) in stockQuoteCtrl.stockQuote">
               <td class="table_data">{{key}}</td>
-              <td class="table_data">{{value}}</td>
+              <td class="table_data">{{value | number}}</td>
             </tr>
           </table>
         </div>
