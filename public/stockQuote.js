@@ -3,7 +3,7 @@ var app = angular.module('stockQuote', []);
 app.controller('StockQuoteController', ['$scope', '$http', function($scope, $http) {
   var stock = this;
   this.stockQuote = {}; 
-  
+  this.tickers = {}; 
   this.getStockData = function() {
     var stockQuoteRequest = "http://dev.markitondemand.com/MODApis/Api/v2/Quote?symbol=" + $scope.stockTicker;
     $http.get(stockQuoteRequest).success(function(data) {
@@ -25,6 +25,13 @@ app.controller('StockQuoteController', ['$scope', '$http', function($scope, $htt
     var postURL = "/save_info?symbol=" + $scope.stockTicker;
     $http.post(postURL).success(function() {
       console.log("saved");
+    });
+  }
+
+  this.displayTickers = function() {
+    var getTickers = "/getTickers";
+    $http.get(getTickers).success(function(data) {
+      stock.tickers = data;
     });
   }
 

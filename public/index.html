@@ -10,13 +10,13 @@
     <div class="header_bar"> 
       Stock Tracker Tool
     </div>
-    <div class="container">
-      <div class="stocks" ng-controller="StockQuoteController as stockQuoteCtrl">
+    <div class="container" ng-controller="StockQuoteController as stockQuoteCtrl">
+      <div class="stocks">
         <form class="symbol_search" ng-submit="stockQuoteCtrl.getStockData()" novalidate>
           Symbol: <input type="text" name="tickerSymbol" ng-model="stockTicker" required>
           <input type="submit" value="Submit">
         </form>
-        <input type="button" value="Save Search Price" class="save_button" ng-click="stockQuoteCtrl.saveStockInfo()">
+        <input type="button" value="Save Search Price" class="save_button" ng-click="stockQuoteCtrl.saveStockInfo()"></input>
         <div class="stock_list">
           <table>
             <tr class="table_format" ng-repeat="(key, value) in stockQuoteCtrl.stockQuote">
@@ -29,6 +29,15 @@
         </div>
       </div>
       <div class="stock_graph">
+          <input type="button" value="Display all searched tickers" class="save_button" ng-click="stockQuoteCtrl.displayTickers()"></input>
+          <div class="stock_list">
+            <table>
+              <tr class="table_format" ng-repeat="(key, value) in stockQuoteCtrl.tickers">
+                <td class="table_data">{{key}}</td>
+                <td class="table_data">{{value}}</td>
+              </tr>
+          </table>
+          </div>
       </div>
     </div>
   </body>

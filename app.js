@@ -14,8 +14,11 @@ app.get('/', function(req, res) {
 
 app.post('/save_info', function(req, res) {
   console.log(req.query);
-  console.log("INSIDE NODE");
   res.json({status: 200});
+});
+
+app.get('/getTickers', function(req, res) {
+  res.json({});
 });
 
 app.listen(8080, function() {
