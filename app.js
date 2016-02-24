@@ -6,6 +6,7 @@ var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+var stocks = {};
 app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', function(req, res) {
   res.sendFile('public/index.html', {root: __dirname});
@@ -13,12 +14,15 @@ app.get('/', function(req, res) {
 });
 
 app.post('/save_info', function(req, res) {
-  console.log(req.query);
+  console.log(req.query.price);
+  if(req.query.price != "undefined") {
+    stocks[req.query.symbol] = req.query.price;
+  }
   res.json({status: 200});
 });
 
 app.get('/getTickers', function(req, res) {
-  res.json({"AAPL" : "500"});
+  res.json({"object" : stocks});
 });
 
 app.listen(8080, function() {

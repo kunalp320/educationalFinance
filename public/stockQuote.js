@@ -21,17 +21,14 @@ app.controller('StockQuoteController', ['$scope', '$http', function($scope, $htt
     });
   }
   this.saveStockInfo = function() {
-    console.log("inside angular");
-    var postURL = "/save_info?symbol=" + $scope.stockTicker;
-    $http.post(postURL).success(function() {
-      console.log("saved");
-    });
+    var postURL = "/save_info?symbol=" + $scope.stockTicker + "&price=" + stock.stockQuote.LastPrice;
+    $http.post(postURL).success(function() {});
   }
 
   this.displayTickers = function() {
     var getTickers = "/getTickers";
     $http.get(getTickers).success(function(data) {
-      stock.tickers = data;
+      stock.tickers = data.object;
     });
   }
 
