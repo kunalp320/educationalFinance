@@ -36,6 +36,4 @@ app.get('/getTickers', function(req, res) {
   res.json({"object" : stocks});
 });
 
-app.listen(8080, function() {
-  console.log("Listening on port 8080");
-});
+
