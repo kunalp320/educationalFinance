@@ -1,4 +1,4 @@
-var app = angular.module('stockQuote', []);
+var app = angular.module('stockQuote', ['n3-line-chart']);
 
 app.controller("ChartController", ['$scope', '$http', function($scope, $http) {
   this.data = {};
