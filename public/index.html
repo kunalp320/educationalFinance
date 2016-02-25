@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="stockQuote">
+<html>
   <head>
     <link rel="stylesheet" type="text/css", href="stylesheets/homepage.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js"></script>
@@ -9,7 +9,7 @@
     <script href="https://ajax.googleapis.com/ajax/libs/angularjs/X.Y.Z/angular-route.js"></script>
     <script src="stockQuote.js"></script>
   </head>
-  <body >
+  <body ng-app="stockQuote">
     <div class="header_bar"> 
       Stock Tracker Tool
     </div>
@@ -43,9 +43,11 @@
               </tr>
           </table>
           </div>
-      </div>
+        </div>
       <div class="stocks" ng-controller="ChartController as chartCtrl">
+        <input type="button" value ="Show chart" class="save_button" ng-click="chartCtrl.getChartData()">
         <linechart data="chartCtrl.data" options="chartCtrl.options"></linechart>
+        {{chartCtrl.data}}
       </div>
     </div>
   </body>
