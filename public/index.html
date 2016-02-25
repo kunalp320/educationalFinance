@@ -4,8 +4,9 @@
     <link rel="stylesheet" type="text/css", href="stylesheets/homepage.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js"></script>
     <script src="https://x2js.googlecode.com/hg/xml2json.js"></script>
-    <script src="d3/d3.min.js"></script>
-    <script src="n3-charts/build/LineChart.js"></script>
+    <script src="./d3/d3.min.js"></script>
+    <script src="./n3-charts/build/LineChart.js"></script>
+    <link rel="stylesheet" href="./n3-charts/build/LineChart.css">
     <script href="https://ajax.googleapis.com/ajax/libs/angularjs/X.Y.Z/angular-route.js"></script>
     <script src="stockQuote.js"></script>
   </head>
@@ -45,7 +46,9 @@
           </div>
         </div>
         <div class="stocks" ng-controller="ChartController as chartCtrl">
-        <input type="button" value ="Show chart" class="save_button" ng-click="chartCtrl.getChartData()">
+          <input type="button" value ="Show chart" class="save_button" ng-click="chartCtrl.getChartData()">
+          {{chartCtrl.data}}
+          {{chartCtrl.options}}
         <linechart ng-show="chartCtrl.hasData"> data="chartCtrl.data" options="chartCtrl.options"></linechart>
       </div>
     </div>
